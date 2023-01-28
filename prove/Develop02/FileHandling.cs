@@ -24,7 +24,7 @@ class FileHandling
             }
         }
 
-    public void save (string date, string prompt, string userInput);
+    public void Save (string date, string prompt, string userInput);
 
         {
             Console.Write("Enter the Filename: ");
