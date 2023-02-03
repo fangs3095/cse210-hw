@@ -2,41 +2,28 @@ using System;
 
 class FileHandling
 {
-
-        string fileName = "journal.text";
-    
-   
-
-
-
+    string fileName = "journal.text";
     public void load()
-    
+    {
+        using  (StreamReader reader = new StreamReader(fileName))
         {
-            string [] Lines = System.IO.File.ReadAllLines("joural.text");
-        
-            foreach (string line  in Lines)
+            string line = reader.ReadLine();
+            while(line != null)
             {
-                string[] parts = line.Split(",");
-                string date = parts[0];
-                string prompt = parts[1];
-                string userInput = parts[2];
                 Console.WriteLine(line);
+                line = reader.ReadLine();
             }
         }
+    }
 
-    public void Save (string date, string prompt, string userInput);
-
+    public void Save (string date, string prompt, string userInput)
+    {
+        using (StreamWriter file = new StreamWriter(fileName, true))
         {
-            Console.Write("Enter the Filename: ");
-            fileName = Console.ReadLine();
-
-            using (StreamWriter file = new StreamWriter(fileName, true))
-            {
-                file.WriteLine($"{date}\n");
-                file.WriteLine($"{prompt}\n");
-                file.WriteLine($"{userInput}\n");
-            }
+            file.WriteLine($"{date}\n");
+            file.WriteLine($"{prompt}\n");
+            file.WriteLine($"{userInput}\n");
         }
-           
+    }
         
 }    

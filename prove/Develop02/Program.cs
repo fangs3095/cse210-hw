@@ -11,8 +11,7 @@ using System;
     
     
         int menu_option = 0;
-        while (menu_option != 6 )
-        
+        do {
             Console.WriteLine("Hello welcom to the joural app");
             Console.WriteLine("Please select what you like to do");
             Console.WriteLine("1-Write");
@@ -24,12 +23,7 @@ using System;
             Console.Write(">");
             menu_option =Convert.ToInt32 (Console.ReadLine());
 
-
-            
-
-          while (menu_option !=6)
-          {
-
+    
             if (menu_option == 1)
             {
                 journalMk2.addEntry();
@@ -40,28 +34,19 @@ using System;
             }
             else if (menu_option == 3)
             {
-                 FileHandling.load();
+                 fileHandling.Save(journalMk2.date, journalMk2.prompt, journalMk2.userInput);
             }
             else if (menu_option == 4)
             {
-                 FileHandling.save(journalMk2.date, journalMk2.prompt,journalMk2.userImput);
+                 fileHandling.load();
             }
             else if (menu_option == 5)
             {
                 string scripture = scripturesGenerator.getScrip();
                 Console.WriteLine(scripture);
             }
-            Console.WriteLine("Hello welcom to the joural app");
-            Console.WriteLine("Please select what you like to do");
-            Console.WriteLine("1-Write");
-            Console.WriteLine("2-Display");
-            Console.WriteLine("3-Save");
-            Console.WriteLine("4-Load");
-            Console.WriteLine("5-Random scripture");
-            Console.WriteLine("6-Quit");
-            Console.Write(">");
-          }
+            
+          } while (menu_option != 6);
            
     }
 }
-
