@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-            string filePath = @"C:\Users\dicma\OneDrive\Documents\byui\cse210\cse210-hw\prove\Develop03\ScriptureList.csv";
+            string filePath = @"C:D:\Braxton School\cse210\week 1\cse210-hw\prove\Develop03\ScriptureList.csv";
             System.IO.StreamReader file = new System.IO.StreamReader(filePath);
             string separator = ",";
             string line;
