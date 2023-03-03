@@ -9,74 +9,85 @@ namespace Develop04
         private List<string> _questions;
         private List<string> _answers = new List<string>();
 
-        public ListingActivity(List<string> questions, string name, string description, int duration) : base(name, description, duration)
+        public ListingActivity(List<string> questions, string name, string description) : base(name, description)
         {
             _questions = questions;
         }
 
-        private void DisplayQuestion()
+        private void StartListing(int duration)
         {
-            PromptGenerator promptGenerator = new PromptGenerator(_questions);
-            string question = promptGenerator.CreatePrompt();
+                DateTime datetime = DateTime.Now;
 
-            Console.WriteLine(question);
+                while(TimeLeft(datetime, duration))
+                {
+                    Console.Write(">");
+                    string answer = Console.ReadLine();
+                    _answers.Add(answer);
+                }           
+        }
+
+        private void DisplayList()
+        {
+                foreach (string answer in _answers)
+                {
+                    Console.WriteLine($"> {answer}");
+                }
         }
 
         public void StartActivity()
         {
-            string [] sequence = new string[] { ".  ", ".. ", "..."};
-            LoadingAnimation animation = new LoadingAnimation(sequence, 1);
 
             DisplayStartingMessage();
+
+            Console.WriteLine();
+
+            SetDuration();
 
             Console.Clear();
 
             DateTime datetime = DateTime.Now;
 
-            while(TimeLeft(datetime, GetDuration()))
+            while(TimeLeft(datetime, _duration))
             {
-                DisplayQuestion();
+                Console.WriteLine("+ _ - * - Carefully read the following question, press enter once you feel prepared - * - _ +");
 
-                DateTime datetime2 = DateTime.Now;
+                Console.WriteLine();
 
-                while(TimeLeft(datetime2, 13))
-                {
-                    animation.Turn();
-                }
+                DisplayPrompt(_questions);
 
-                Console.WriteLine("Its time for you to list");
+                Console.WriteLine();
 
-                DateTime datetime3 = DateTime.Now;
-
-                while(TimeLeft(datetime3, 15))
-                {
-                    string answer = Console.ReadLine();
-                    Console.Clear();
-                    _answers.Add(answer);
-                    Console.WriteLine($"> {answer}");
-                }
+                Console.ReadLine();
 
                 Console.Clear();
 
-                foreach (string answer in _answers)
-                {
-                    Console.WriteLine($"> {answer}");
-                }
+                Console.Write("Ok! time for you to list in...");
 
-                Console.Write("This is your current list");
+                DisplayAnimation(4,1,3);
 
-                DateTime datetime4 = DateTime.Now;
+                Console.WriteLine();
 
-                while(TimeLeft(datetime4, 13))
-                {
-                    animation.Turn();
-                }
+                StartListing(10);
 
                 Console.Clear();
 
+                Console.WriteLine("This is your current list");
+
+                Console.WriteLine();
+
+                DisplayList();
+
+                Console.WriteLine();
+
+                DisplayAnimation(3,3,5);
+
+                Console.Clear();
             }
 
+            Console.WriteLine();
+
             DisplayEndingMessage();
+
 
         }
     }

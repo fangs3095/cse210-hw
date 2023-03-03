@@ -4,57 +4,49 @@ namespace Develop04
 {
     public class BreathingActivity : Activity
     {
-        public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
+
+        public BreathingActivity(string name, string description) : base(name, description)
         {
 
         }
 
+
+        private void breatheSequence(string message)
+        {
+            Console.Write($"{message}...");
+
+            DisplayAnimation(4,1,3);
+
+            Console.Write("Good! Now");
+
+            DisplayAnimation(1,1,3);
+
+            Console.Clear();
+        }
+
         public void StartActivity()
         {
-        string [] sequence1 = new string[] { ".", "..", "..." };
-        string [] sequence2 = new string[] { "6", "5", "4", "3", "2", "1"};
-
-        LoadingAnimation animation = new LoadingAnimation(sequence2, 1);
-        LoadingAnimation animation2 = new LoadingAnimation(sequence1, 1);
 
         DisplayStartingMessage();
-        
-        Sleep(5);
+
+        Console.WriteLine();
+
+        SetDuration();
 
         Console.Clear();
 
         DateTime datetime = DateTime.Now;
 
-        while(TimeLeft(datetime, GetDuration()))
+        while(TimeLeft(datetime, _duration))
         {
-            Console.Write("Breathe Please");
-
-            DateTime datetime2 = DateTime.Now;
-
-            while(TimeLeft(datetime2, 6))
-            {
-                animation.Turn();
-            }
-
-            Console.Clear();
-
-            Console.Write("Good Job! Now ");
-
-            DateTime datetime3 = DateTime.Now;
-
-            while(TimeLeft(datetime3, 3))
-            {
-                animation2.Turn();
-            }
-
-            Console.Clear();
+            breatheSequence("Breathe In");
+            
+            breatheSequence("Breathe Out");
         }
 
         Console.Clear();
 
         DisplayEndingMessage();
-
-        Sleep(5);
 
         }
     }
