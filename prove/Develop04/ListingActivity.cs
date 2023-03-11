@@ -61,7 +61,7 @@ namespace Develop04
 
                 Console.Clear();
 
-                Console.Write("Ok! time for you to list in...");
+                Console.Write("Ok! time for you to start your list in...");
 
                 DisplayAnimation(4,1,3);
 

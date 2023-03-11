@@ -9,9 +9,9 @@ class Program
         List<string> ReflectionsPrompts = GetList("ReflectionPrompts.csv");
         List<string> ListingQuestions = GetList("ReflectionPrompts.csv");
 
-        BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
-        ReflectionActivity reflectionActivity = new ReflectionActivity(ReflectionsPrompts, ReflectionQuestions, "Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
-        ListingActivity listingActivity = new ListingActivity(ListingQuestions, "Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
+        BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", "In this activity we will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
+        ReflectionActivity reflectionActivity = new ReflectionActivity(ReflectionsPrompts, ReflectionQuestions, "Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience, in the face of your trials. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+        ListingActivity listingActivity = new ListingActivity(ListingQuestions, "Listing Activity", "This activity will help you reflect on the good times that you have had in your life by having you list as many things as you can in a certain area.");
         
         bool menuLoop;
         do
@@ -26,8 +26,8 @@ class Program
 
     static bool MainMenu(BreathingActivity breathingActivity, ReflectionActivity reflectionActivity, ListingActivity listingActivity)
     {
-        Console.WriteLine("--- Welcome to your Mindfulness program ---\n");
-        Console.WriteLine("What will you do today?\n");
+        Console.WriteLine("--- Welcome to your thoughts, and relazation program ---\n");
+        Console.WriteLine("What will you wish to do today?\n");
         Console.WriteLine("1- Breathing Activity\n\n2- Reflection Activity\n\n3-Listing Activity\n\n4- quit\n");
 
         string userChoice = Console.ReadLine();
@@ -53,7 +53,7 @@ class Program
         else if (userChoice == "4")
         {
             Console.Clear();
-            Console.WriteLine("Goodbye!");
+            Console.WriteLine("Goodbye And have a good day!");
             Thread.Sleep(3000);
             return false;
         }

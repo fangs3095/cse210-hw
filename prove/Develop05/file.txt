@@ -1,0 +1,5 @@
+1830
+EternalGoal:Read The Bible~I have to read the bible every single day~200
+SimpleGoal:Buy a cat toy~Buy something for my cat~10~True
+ChecklistGoal:Run outside~ Run 10 times in a month~100~400~10~3
+SimpleGoal:Go to Church~Assit Church at least once a week~20~True

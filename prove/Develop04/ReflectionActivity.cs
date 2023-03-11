@@ -30,7 +30,7 @@ namespace Develop04
 
             while(TimeLeft(datetime, _duration))
             {
-                Console.WriteLine("+ _ - * - Carefully read the following prompt, press enter to continue - * - _ +");
+                Console.WriteLine("+ _ - * - Carefully read the following prompt, press enter to continue with the activity - * - _ +");
 
                 Console.WriteLine();
 
