@@ -6,7 +6,7 @@
     Entryies entryies = new Entryies();
     FileHandling fileHandling = new FileHandling();
     QandA qandA = new QandA();
-    ScripturesGenerator scripturesGenerator = new ScripturesGenerator();
+    QoteGenerators QoteGenerators = new QoteGenerators();
     string filename = "";
     
     
@@ -42,7 +42,7 @@
             }
             else if (menu_option == 5)
             {
-                string scripture = scripturesGenerator.getScrip();
+                string scripture = QoteGenerators.getScrip();
                 Console.WriteLine(scripture);
             }
             
